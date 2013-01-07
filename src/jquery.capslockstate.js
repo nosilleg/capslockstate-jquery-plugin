@@ -1,12 +1,12 @@
 /*!
- * jQuery capslockstate plugin v1.1.0
+ * jQuery capslockstate plugin v1.2.0
  * https://github.com/nosilleg/capslockstate-jquery-plugin/
  *
  * Copyright 2012 Jason Ellison
  * Released under the MIT license
  * https://github.com/nosilleg/capslockstate-jquery-plugin/blob/master/MIT-LICENSE.txt
  *
- * Date: Thu Dec 13 2012 08:47:00 GMT
+ * Date: Mon Jan 7 2013 22:41:00 GMT
  */
 (function($) {
 
@@ -72,30 +72,32 @@
 				}
 			};
 
-			return this.each(function() {
-
-				// Check all keys
-				$('body').bind("keypress.capslockstate", function(event) {
-					var previousState = capsLockState;
-					capsLockState = helpers.isCapslockOn(event);
-					helpers.hasStateChange(previousState, capsLockState);
-				});
-
-				// Check if key was Caps Lock key
-				$('body').bind("keydown.capslockstate", function(event) {
-					var previousState = capsLockState;
-					capsLockState = helpers.isCapslockKey(event);
-					helpers.hasStateChange(previousState, capsLockState);
-				});
-
-				// If the window loses focus then we no longer know the state
-				$(window).bind("focus.capslockstate", function() {
-					var previousState = capsLockState;
-					capsLockState = "unknown";
-					helpers.hasStateChange(previousState, capsLockState);
-				});
-
+			// Check all keys
+			$('body').bind("keypress.capslockstate", function(event) {
+				var previousState = capsLockState;
+				capsLockState = helpers.isCapslockOn(event);
+				helpers.hasStateChange(previousState, capsLockState);
 			});
+
+			// Check if key was Caps Lock key
+			$('body').bind("keydown.capslockstate", function(event) {
+				var previousState = capsLockState;
+				capsLockState = helpers.isCapslockKey(event);
+				helpers.hasStateChange(previousState, capsLockState);
+			});
+
+			// If the window loses focus then we no longer know the state
+			$(window).bind("focus.capslockstate", function() {
+				var previousState = capsLockState;
+				capsLockState = "unknown";
+				helpers.hasStateChange(previousState, capsLockState);
+			});
+
+			// Trigger events on initial load of plugin
+			helpers.hasStateChange(null, "unknown");
+
+			// Maintain chainability
+			return this.each(function() {});
 
 		},
 		state : function() {
