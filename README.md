@@ -1,6 +1,6 @@
 ## capslockstate jQuery plugin
 
-capslockstate is a JQuery plugin which monitors the state of the Caps Lock key.  It will trigger events when the state changes and has a method to return the current state.
+capslockstate is a jQuery plugin for monitoring and reporting the state of the Caps Lock key.  It will trigger events when the state changes and has a method to return the current state.
 
 ### Quickstart and demo
 

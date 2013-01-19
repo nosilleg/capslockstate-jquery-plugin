@@ -1,0 +1,31 @@
+{
+  "name": "capslockstate",
+  "title": "jQuery Caps Lock State",
+  "description": "jQuery plugin for monitoring and reporting the state of the Caps Lock key.",
+  "keywords": [
+    "caps lock",
+    "capslock",
+    "caps"    
+  ],
+  "version": "1.2.0",
+  "author": {
+    "name": "Jason Ellison",
+  },
+  "maintainers": [
+    {
+      "name": "Jason Ellison",
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/nosilleg/capslockstate-jquery-plugin/master/MIT-LICENSE.txt"
+    }
+  ],
+  "bugs": "https://github.com/nosilleg/capslockstate-jquery-plugin/issues",
+  "homepage": "https://github.com/nosilleg/capslockstate-jquery-plugin",
+  "docs": "https://github.com/nosilleg/capslockstate-jquery-plugin/wiki",
+  "dependencies": {
+    "jquery": ">=1.3"
+  }
+}
