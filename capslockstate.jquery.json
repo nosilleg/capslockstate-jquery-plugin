@@ -7,7 +7,7 @@
     "caps",
     "lock"
   ],
-  "version": "1.2.0-3",
+  "version": "1.2.0-4",
   "author": {
     "name": "Jason Ellison",
     "email": "jason+capslockstate@nosilleg.com"
@@ -15,12 +15,13 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://goo.gl/1mwJ2"
+      "url": "http://goo.gl/71qHR"
     }
   ],
   "bugs": "http://goo.gl/ITMDP",
   "homepage": "http://goo.gl/k5O5X",
   "docs": "http://goo.gl/J6HLW",
+  "download": "http://goo.gl/E3DO7",
   "dependencies": {
     "jquery": ">=1.3"
   }
