@@ -1,12 +1,12 @@
 /*!
- * jQuery capslockstate plugin v1.2.0
+ * jQuery capslockstate plugin v1.2.1
  * https://github.com/nosilleg/capslockstate-jquery-plugin/
  *
  * Copyright 2012 Jason Ellison
  * Released under the MIT license
  * https://github.com/nosilleg/capslockstate-jquery-plugin/blob/master/MIT-LICENSE.txt
  *
- * Date: Mon Jan 7 2013 22:41:00 GMT
+ * Date: Sun Feb 3 2013 21:34:00 GMT
  */
 (function($) {
 
@@ -20,6 +20,9 @@
 				// No defaults, because there are no options
 			}, options);
 
+			// Some systems will always return uppercase characters if Caps Lock is on. 
+			var capsLockForcedUppercase = /MacPPC|MacIntel/.test(window.navigator.platform) === true;
+
 			var helpers = {
 				isCapslockOn : function(event) {
 
@@ -29,12 +32,16 @@
 					} else if (event.modifiers) { // determines whether or not shift, alt or ctrl were held
 						shiftOn = !!(event.modifiers & 4);
 					}
-					
+
 					var keyString = String.fromCharCode(event.which); // logs which key was pressed
 					if (keyString.toUpperCase() === keyString.toLowerCase()) {
 						// We can't determine the state for these keys
 					} else if (keyString.toUpperCase() === keyString) {
-						capsLockState = !shiftOn;
+						if (capsLockForcedUppercase === true && shiftOn) {
+							// We can't determine the state for these keys
+						} else {
+							capsLockState = !shiftOn;
+						}
 					} else if (keyString.toLowerCase() === keyString) {
 						capsLockState = shiftOn;
 					}
